@@ -9,7 +9,7 @@ const CounterOutput = props => (
 )
 
 CounterOutput.propTypes = {
-  value: PropTypes.int
+  value: PropTypes.number
 }
 
 export default CounterOutput

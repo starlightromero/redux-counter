@@ -9,7 +9,7 @@ const CounterResult = props => (
 )
 
 CounterResult.propTypes = {
-  value: PropTypes.int,
+  value: PropTypes.number,
   clicked: PropTypes.func
 }
 
