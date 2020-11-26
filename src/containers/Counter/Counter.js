@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import CounterControl from '../../components/CounterControl/CounterControl'
 import CounterOutput from '../../components/CounterOutput/CounterOutput'
+import CounterResult from '../../components/CounterResult/CounterResult'
 import * as actionCreators from '../../store/actions/index'
 
 class Counter extends Component {
@@ -18,15 +19,12 @@ class Counter extends Component {
         <CounterControl
           label='Store Result'
           clicked={() => this.props.onStoreResult(this.props.counter)} />
-        <ul>
-          {this.props.storedResults.map(result => (
-            <li
-              key={result.id}
-              onClick={() => this.props.onDeleteResult(result.id)}>
-              {result.value}
-            </li>
-          ))}
-        </ul>
+        {this.props.storedResults.map(result => (
+          <CounterResult
+            key={result.id}
+            value={result.value}
+            clicked={() => this.props.onDeleteResult(result.id)} />
+        ))}
       </div>
     )
   }
