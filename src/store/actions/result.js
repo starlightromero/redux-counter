@@ -15,9 +15,17 @@ export const storeResult = result => {
   }
 }
 
-export const deleteResult = id => {
+export const removeResult = id => {
   return {
     type: actionTypes.DELETE_RESULT,
     resultId: id
+  }
+}
+
+export const deleteResult = id => {
+  return dispatch => {
+    setTimeout(() => {
+      dispatch(removeResult(id))
+    }, 2000)
   }
 }
