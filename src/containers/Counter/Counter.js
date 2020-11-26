@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import CounterControl from '../../components/CounterControl/CounterControl'
 import CounterOutput from '../../components/CounterOutput/CounterOutput'
@@ -47,6 +48,17 @@ const mapDispatchToProps = dispatch => {
     onStoreResult: result => dispatch(actionCreators.storeResult(result)),
     onDeleteResult: id => dispatch(actionCreators.deleteResult(id))
   }
+}
+
+Counter.propTypes = {
+  counter: PropTypes.number,
+  storedResults: PropTypes.array,
+  onIncrementCounter: PropTypes.func,
+  onDecrementCounter: PropTypes.func,
+  onAddCounter: PropTypes.func,
+  onSubtractCounter: PropTypes.func,
+  onStoreResult: PropTypes.func,
+  onDeleteResult: PropTypes.func
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter)
