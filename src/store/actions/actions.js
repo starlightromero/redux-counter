@@ -11,7 +11,7 @@ export const increment = () => {
   }
 }
 
-export const increment = () => {
+export const decrement = () => {
   return {
     type: DECREMENT
   }
@@ -31,16 +31,24 @@ export const subtract = value => {
   }
 }
 
-export const storeResult = result => {
+export const saveResult = result => {
   return {
-    type: SUBTRACT,
+    type: STORE_RESULT,
     result: result
+  }
+}
+
+export const storeResult = result => {
+  return dispatch => {
+    setTimeout(() => {
+      dispatch(saveResult)
+    }, 2000)
   }
 }
 
 export const deleteResult = id => {
   return {
-    type: SUBTRACT,
+    type: DELETE_RESULT,
     resultId: id
   }
 }
